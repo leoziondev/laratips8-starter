@@ -8,6 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Helcome Home Page</h1>
+    <a href="{{ route('home') }}">Home</a>
+    <a href="{{ route('about-us') }}">About Us</a>
+    <a href="{{ route('admin.home') }}">Admin Home</a>
+
+    <div>
+        Home Page
+    </div>
 </body>
 </html>
