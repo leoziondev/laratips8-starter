@@ -10,10 +10,17 @@
 <body>
     <a href="{{ route('home') }}">Home</a>
     <a href="{{ route('about-us') }}">About Us</a>
+{{--    <a href="{{ URL::signedRoute('secret') }}">secret</a>--}}
+    <a href="{{ URL::temporarySignedRoute('secret', now()->addSeconds(5)) }}">secret</a>
     <a href="{{ route('admin.home') }}">Admin Home</a>
 
     <div>
         Home Page
+    </div>
+
+    <div>
+{{--        {{route('about-us', ['slug' => 'english', 'foo' => 1, 'bar' => 2]) }}--}}
+        {{ route('post.comment', ['post' => 'first-post', 'comment' => 'first-comment', 'hello' => 'world']) }}
     </div>
 </body>
 </html>
