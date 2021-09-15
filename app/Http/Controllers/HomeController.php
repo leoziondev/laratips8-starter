@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
@@ -13,34 +15,29 @@ class HomeController extends Controller
         Session::put('activeNav', 'home');
         Session::remove('activeNav');
 
-// CREATED
-//        $blog = new Blog();
-//        $blog->title = 'How start Laravel framework ';
-//        $blog->description = 'The first steps ...';
-//        $blog->category_id = 1;
-//        $blog->save();
+//        $title = 'samsung galaxy s20';
+//
+//        $product = new Product();
+//        $product->title = $title;
+//        $product->slug = Str::slug($title);
+//        $product->price = 1000;
+//        $product->is_active = true;
+//        $product->save();
 
-// UPDATED
-//        $blog = Blog::find(1);
-//        $blog->title = 'How start Laravel framework Updated 2021';
-//        $blog->description = 'The first steps in 2021 the right way with Laravel 8';
-//        $blog->save();
+//        $title = 'Motorola One';
+//
+//        $product = new Product();
+//        $product->title = $title;
+//        $product->slug = Str::slug($title);
+//        $product->price = 900;
+//        $product->is_active = true;
+//        $product->save();
 
-// DELETED
-//        $blog = Blog::find(1);
-//        $blog->delete();
+        $product = Product::find(4);
+        // Captilize Title
+//        $product->title = Str::title($product->title);
 
-// DELETED MULTIPLE DATA
-//        return Blog::whereIn('id', [2,3,4])->delete();
-
-// READ
-//        return Blog::latest()
-//            ->get();
-
-        return Blog::whereIn('id', [2])
-            ->get();
-
-
+        return $product;
 
         return view('home');
     }
