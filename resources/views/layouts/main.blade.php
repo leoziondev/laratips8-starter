@@ -9,7 +9,7 @@
 
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-50">
 @include('partials.navbar')
 
 <main class="container mx-auto mt-8">
