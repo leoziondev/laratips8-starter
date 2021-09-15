@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ContactUsRequest;
 use Illuminate\Support\Facades\Session;
 
 class ContactUsController extends Controller
@@ -13,5 +13,10 @@ class ContactUsController extends Controller
 //        Session::flash('alertMessage', 'Contact us form submitted successfully!');
 
         return view('contact');
+    }
+
+    public function store(ContactUsRequest $request)
+    {
+        dd($request->all());
     }
 }
