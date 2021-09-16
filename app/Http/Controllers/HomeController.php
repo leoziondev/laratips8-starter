@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Product;
+use App\Scopes\ActiveScope;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
@@ -15,29 +16,19 @@ class HomeController extends Controller
         Session::put('activeNav', 'home');
         Session::remove('activeNav');
 
-//        $title = 'samsung galaxy s20';
-//
-//        $product = new Product();
-//        $product->title = $title;
-//        $product->slug = Str::slug($title);
-//        $product->price = 1000;
-//        $product->is_active = true;
-//        $product->save();
+//        $query = Product::inStock();
+//        dd($query->toSql(), $query->getBindings());
 
-//        $title = 'Motorola One';
-//
-//        $product = new Product();
-//        $product->title = $title;
-//        $product->slug = Str::slug($title);
-//        $product->price = 900;
-//        $product->is_active = true;
-//        $product->save();
+// With Global Scope
+//        return Product::inStock()->get();
 
-        $product = Product::find(4);
-        // Captilize Title
-//        $product->title = Str::title($product->title);
+        // Debug
+        //dd(Product::inStock()->get());
 
-        return $product;
+        // Without Global Scope
+        return Product::withoutGlobalScope(ActiveScope::class)->inStock()->get();
+
+
 
         return view('home');
     }

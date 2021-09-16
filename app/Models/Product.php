@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Casts\MoneyCast;
+use App\Scopes\ActiveScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -21,8 +22,23 @@ class Product extends Model
         return Str::title($value);
     }
 
-//    public function setPriceAttribute($value)
+//    public function scopeActive($query)
 //    {
-//        $this->attributes['price'] = $value * 100;
+//        return $query->where('is_active', true);
 //    }
+
+    public function scopeInStock($query)
+    {
+        return $query->where('quantity', '>', 0);
+    }
+
+    public function scopeCanBeBought($query)
+    {
+        return $query->active()->InStock();
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new ActiveScope);
+    }
 }
