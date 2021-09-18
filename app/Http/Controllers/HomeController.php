@@ -16,20 +16,6 @@ class HomeController extends Controller
         Session::put('activeNav', 'home');
         Session::remove('activeNav');
 
-//        $query = Product::inStock();
-//        dd($query->toSql(), $query->getBindings());
-
-// With Global Scope
-//        return Product::inStock()->get();
-
-        // Debug
-        //dd(Product::inStock()->get());
-
-        // Without Global Scope
-        return Product::withoutGlobalScope(ActiveScope::class)->inStock()->get();
-
-
-
         return view('home');
     }
 }

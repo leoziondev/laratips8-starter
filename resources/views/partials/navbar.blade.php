@@ -5,6 +5,7 @@
             <a href="{{ route('home') }}" class="font-semibold hover:bg-purple-600 py-4 px-4 border-b-2 hover:border-purple-200 transition-all {{ session('activeNav') === 'home' ? 'bg-purple-600 border-purple-200' : 'border-purple-700' }}">Home</a>
             <a href="{{ route('about-us') }}" class="font-semibold hover:bg-purple-600 py-4 px-4 border-b-2 hover:border-purple-200 transition-all {{ session('activeNav') === 'about' ? 'bg-purple-600 border-purple-200' : 'border-purple-700' }}">About Us</a>
             <a href="{{ route('contact-us') }}" class="font-semibold hover:bg-purple-600 py-4 px-4 border-b-2 hover:border-purple-200 transition-all {{ session('activeNav') === 'contact' ? 'bg-purple-600 border-purple-200' : 'border-purple-700' }}">Contact Us</a>
+            <a href="{{ route('signup.form') }}" class="font-semibold hover:bg-purple-600 py-4 px-4 border-b-2 hover:border-purple-200 transition-all {{ session('activeNav') === 'signup' ? 'bg-purple-600 border-purple-200' : 'border-purple-700' }}">Signup</a>
         </nav>
     </div>
 </header>
